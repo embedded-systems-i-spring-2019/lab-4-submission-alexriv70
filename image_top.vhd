@@ -82,7 +82,11 @@ signal addr : std_logic_vector (17 downto 0);
 signal hcount, vcount : STD_LOGIC_VECTOR (9 downto 0);
 signal vid , vs, hs: STD_LOGIC;
 
+
 begin
+
+vga_vs <= vs;
+
 
     u1: clock_div port map (
         clk_in => clk,
@@ -94,7 +98,7 @@ begin
         hcount => hcount,
         vcount => vcount,
         vid => vid,
-        vs => vga_vs,
+        vs => vs,
         hs => vga_hs
         );
     u3: pixel_pusher port map (
